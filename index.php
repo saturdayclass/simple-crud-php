@@ -1,3 +1,8 @@
+<!-- Panggil file koneksi, karena kita membutuhkan nya -->
+<?php
+  include "koneksi.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +28,31 @@
             <th scope="col">Kelas</th>
           </tr>
         </thead>
+        <?php
+            // variable no digunakan untuk meng-increments field no pada table. Karena nanti kita akan melooping data hasil query select kita. 
+            $no = 1;
+            // Simpan query kita kedalam variable agar lebih rapi, dan bisa reusable.
+            // Arti dari query di bawah adalah pilih semua data dari table tb_siswa.
+            $query = "SELECT * FROM tb_siswa";
+            // Eksekusi Query
+            // Simpan hasil eksekusi query kita ke dalam variable. Di sini variable nya saya kasih nama result.
+            $result = mysqli_query($koneksi, $query);
+            // Done. Waktunya Looping
+        ?>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+        <?php
+          foreach ($result as $data){
+            echo "
+              <tr>
+                <th scope='row'>". $no++ ."</th>
+                <td>". $data["nis"] ."</td>
+                <td>". $data["nama"] ."</td>
+                <td>". $data["kelas"] ."</td>
+              </tr>  
+            ";
+          }
+        ?>
+          
         </tbody>  
       </table>
     </div>
