@@ -51,7 +51,7 @@
                   <td>". $data["nama"] ."</td>
                   <td>". $data["kelas"] ."</td>
                   <td> 
-                    <a href='update.php?id=".$data["id"]."' type='button' class='btn btn-success'>Edit</a>
+                    <a href='update.php?id=".$data["id"]."' type='button' class='btn btn-success'>Update</a>
                     <a href='delete.php?id=".$data["id"]."' type='button' class='btn btn-danger' onlick='return confirm('Yakin ingin menghapus data?')'>Delete</a>
                   </td>
                 </tr>  
