@@ -26,33 +26,37 @@
             <th scope="col">Nis</th>
             <th scope="col">Nama</th>
             <th scope="col">Kelas</th>
+            <th scope="col">Aksi</th>
           </tr>
         </thead>
-        <?php
-            // variable no digunakan untuk meng-increments field no pada table. Karena nanti kita akan melooping data hasil query select kita. 
-            $no = 1;
-            // Simpan query kita kedalam variable agar lebih rapi, dan bisa reusable.
-            // Arti dari query di bawah adalah pilih semua data dari table tb_siswa.
-            $query = "SELECT * FROM tb_siswa";
-            // Eksekusi Query
-            // Simpan hasil eksekusi query kita ke dalam variable. Di sini variable nya saya kasih nama result.
-            $result = mysqli_query($koneksi, $query);
-            // Done. Waktunya Looping
-        ?>
+          <?php
+              // variable no digunakan untuk meng-increments field no pada table. Karena nanti kita akan melooping data hasil query select kita. 
+              $no = 1;
+              // Simpan query kita kedalam variable agar lebih rapi, dan bisa reusable.
+              // Arti dari query di bawah adalah pilih semua data dari table tb_siswa.
+              $query = "SELECT * FROM tb_siswa";
+              // Eksekusi Query
+              // Simpan hasil eksekusi query kita ke dalam variable. Di sini variable nya saya kasih nama result.
+              $result = mysqli_query($koneksi, $query);
+              // Done. Waktunya Looping
+          ?>
         <tbody>
-        <?php
-          foreach ($result as $data){
-            echo "
-              <tr>
-                <th scope='row'>". $no++ ."</th>
-                <td>". $data["nis"] ."</td>
-                <td>". $data["nama"] ."</td>
-                <td>". $data["kelas"] ."</td>
-              </tr>  
-            ";
-          }
-        ?>
-          
+          <?php
+            foreach ($result as $data){
+              echo "
+                <tr>
+                  <th scope='row'>". $no++ ."</th>
+                  <td>". $data["nis"] ."</td>
+                  <td>". $data["nama"] ."</td>
+                  <td>". $data["kelas"] ."</td>
+                  <td> 
+                    <a href='update.php?id=".$data["id"]."' type='button' class='btn btn-success'>Edit</a>
+                    <a href='delete.php?id=".$data["id"]."' type='button' class='btn btn-success' onlick='return confirm('Yakin ingin menghapus data?')'>Delete</a>
+                  </td>
+                </tr>  
+              ";
+            }
+          ?>
         </tbody>  
       </table>
     </div>
