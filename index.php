@@ -19,6 +19,7 @@
   <section class="row">
     <div class="col-md-6 offset-md-3 align-self-center"> 
       <h1 class="text-center">Daftar Siswa</h1>
+      <a href="tambah.php" class="btn btn-primary mb-2">Tambah</a>
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
@@ -51,7 +52,7 @@
                   <td>". $data["kelas"] ."</td>
                   <td> 
                     <a href='update.php?id=".$data["id"]."' type='button' class='btn btn-success'>Edit</a>
-                    <a href='delete.php?id=".$data["id"]."' type='button' class='btn btn-success' onlick='return confirm('Yakin ingin menghapus data?')'>Delete</a>
+                    <a href='delete.php?id=".$data["id"]."' type='button' class='btn btn-danger' onlick='return confirm('Yakin ingin menghapus data?')'>Delete</a>
                   </td>
                 </tr>  
               ";
