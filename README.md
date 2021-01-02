@@ -1,6 +1,6 @@
 # simple-crud-php
 
-Ini adalah repository contoh sederhana pembuatan CRUD dengan menggunakan bahasa pemrograman PHP
+Ini adalah repository contoh sederhana pembuatan CRUD dengan menggunakan bahasa pemrograman PHP dengan bantuan database SQL yaitu MySQL dan Framework CSS yaitu Bootstrap agar tampilan lebih menarik
 
 # Panduan Penggunaan
 
